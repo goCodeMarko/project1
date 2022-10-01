@@ -44,7 +44,6 @@ module.exports.getUsers = async (req, res) => {
 module.exports.authenticate = async (req, res) => {
     try {
         await model.authenticate(req, res, (result) => {
-            console.log(result[0].isblock);
             if (result.length) {
                 //account exists
                 if (result[0].isblock) {
@@ -97,7 +96,7 @@ module.exports.updateUserAccess = async (req, res) => {
 module.exports.checkAccess = async (properties, req, res) => {
     try {
         await model.checkAccess(properties, req, res, (result) => {
-            // console.log(result)
+            $global.success = result.length ? true : false;
             $global.data = result;
         });
     } catch (error) {
