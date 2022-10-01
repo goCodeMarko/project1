@@ -44,6 +44,7 @@ module.exports.getUsers = async (req, res) => {
 module.exports.authenticate = async (req, res) => {
     try {
         await model.authenticate(req, res, (result) => {
+            console.log(result[0].isblock);
             if (result.length) {
                 //account exists
                 if (result[0].isblock) {
@@ -60,6 +61,9 @@ module.exports.authenticate = async (req, res) => {
                         httpOnly: true, 
                         maxAge: 86400000 
                     });
+
+                    $global.success = true;
+                    $global.message = '';
 
                     $global.data = { token, account: result[0] }
                 }
