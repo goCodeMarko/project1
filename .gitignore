@@ -1,0 +1,6 @@
+logbook/error.log
+logbook
+logbook/*
+node_modules
+node_modules/*
+.env
