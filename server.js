@@ -15,7 +15,7 @@ const
     fs = require('fs'),
     fsPromise = require('fs').promises,
     cookieParser = require('cookie-parser'),
-    clientFolder = config.server.type == 'local' ? 'sandbox-client/client' : 'public';
+    clientFolder = config.server.type == 'local' ? 'sandbox-client/client' : './public';
 
 init.mongoose();
 init.cron();
